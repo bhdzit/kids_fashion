@@ -1,0 +1,15 @@
+.logo {
+    width: 100%;
+}
+
+.logo img {
+    width: 100%;
+}
+
+body{
+    background:darkorange; 
+}
+
+.login-box .card, .login-card-body {
+    border-radius: 10%;
+}
