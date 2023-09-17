@@ -6,6 +6,7 @@ import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { DeactivateGuard } from './deactivate-guard';
 import { AuthService } from './services/auth.services';
+import { ClienteComponent } from './cliente/cliente.component';
 
 const routes: Routes = [
 
@@ -15,10 +16,10 @@ const routes: Routes = [
 //    canActivate: [AuthService],
     canDeactivate: [DeactivateGuard],
     children: [
-//      {
-//        path: 'torre',
-//        component: TorreComponent,
-//      },
+      {
+        path: 'clientes',
+        component: ClienteComponent,
+      },
      
     ]
   },

@@ -20,13 +20,15 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatRadioModule} from '@angular/material/radio';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ClienteComponent } from './cliente/cliente.component';
+import { ClientesInfoComponent } from './cliente/clientes-info/clientes-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ClienteComponent
+    ClienteComponent,
+    ClientesInfoComponent
   ],
   imports: [
     BrowserModule,

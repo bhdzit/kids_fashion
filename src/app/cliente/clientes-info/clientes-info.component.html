@@ -1,0 +1,32 @@
+<div class="row ml-2 mr-2 mt-4 mb-4">
+
+
+
+    <div class="col-sm-7">
+        <div class="input-group has-validation">
+
+            <input #input placeholder="Usuario" type="text" class="form-control" [value]="input.value.toUpperCase()"
+                [ngClass]="{'is-invalid':submitErrorMsg['cliente']}" aria-label="" aria-describedby="basic-addon1">
+            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                {{submitErrorMsg['cliente']?.["msg"]}}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-5 mt-1">
+        <div class="input-group has-validation">
+            <select class="form-control"   [ngClass]="{'is-invalid':submitErrorMsg['paquete']}">
+                <option [value]="null" disabled>-- Tipo de contrato</option>
+                <option [value]="false" >Prepago</option>
+                <option [value]="true" >Arrendamiento</option>
+               
+            </select>
+            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                {{submitErrorMsg['contrato']?.["msg"]}}
+            </div>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary ml-1" (click)="guardarCliente()" >Guardar</button>
+</div>
