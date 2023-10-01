@@ -25,6 +25,7 @@ import { FormErrorDirective } from './services/form-error.directive';
 import { ProductosComponent } from './productos/productos.component';
 import { ProductosInfoComponent } from './productos/productos-info/productos-info.component';
 import { ServiciosComponent } from './servicios/servicios.component';
+import { ServiciosInfoComponent } from './servicios/servicios-info/servicios-info.component';
 
 
 
@@ -38,7 +39,8 @@ import { ServiciosComponent } from './servicios/servicios.component';
     FormErrorDirective,
     ProductosComponent,
     ProductosInfoComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    ServiciosInfoComponent
   ],
   imports: [
     BrowserModule,
