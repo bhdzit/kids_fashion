@@ -59,3 +59,8 @@ $mtp-apoyo-tres: #f1f1f3;
 .selected{
     background: $mtp-primarios-dos !important;
 }
+
+.search-input{
+    width: unset !important;
+    display: inline-block;
+}
