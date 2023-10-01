@@ -27,8 +27,9 @@ import { ProductosInfoComponent } from './productos/productos-info/productos-inf
 import { ServiciosComponent } from './servicios/servicios.component';
 import { ServiciosInfoComponent } from './servicios/servicios-info/servicios-info.component';
 import { EstilistasComponent } from './estilistas/estilistas.component';
-
-
+import { EstilistasInfoComponent } from './estilistas/estilistas-info/estilistas-info.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { EstilistasComponent } from './estilistas/estilistas.component';
     ProductosInfoComponent,
     ServiciosComponent,
     ServiciosInfoComponent,
-    EstilistasComponent
+    EstilistasComponent,
+    EstilistasInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,9 @@ import { EstilistasComponent } from './estilistas/estilistas.component';
     MatInputModule,
     MatSortModule,
     MatRadioModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    FullCalendarModule,
+    MatExpansionModule
   ],
   providers: [AllHttpInterceptor,DeactivateGuard, {
     provide: MatDialogRef,
