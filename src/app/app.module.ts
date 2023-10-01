@@ -23,6 +23,8 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { ClientesInfoComponent } from './cliente/clientes-info/clientes-info.component';
 import { FormErrorDirective } from './services/form-error.directive';
 import { ProductosComponent } from './productos/productos.component';
+import { ProductosInfoComponent } from './productos/productos-info/productos-info.component';
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { ProductosComponent } from './productos/productos.component';
     ClienteComponent,
     ClientesInfoComponent,
     FormErrorDirective,
-    ProductosComponent
+    ProductosComponent,
+    ProductosInfoComponent
   ],
   imports: [
     BrowserModule,
