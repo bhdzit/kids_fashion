@@ -1,0 +1,61 @@
+//Paleta de colores de MTP
+$mtp-primarios-uno: #004A6D;
+$mtp-primarios-dos: #00ABCB;
+$mtp-primarios-tres: #2f3239;
+
+$mtp-apoyo-uno: #878787;
+$mtp-apoyo-dos: #d7d7d7;
+$mtp-apoyo-tres: #f1f1f3;
+
+
+
+.input-container {
+    position: relative;
+    height: 30px;
+    margin-bottom: 15px;
+}
+
+.input-container label {
+    z-index: 5;
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-120%) scale(0.8);
+    left: 10px;
+    color: $mtp-apoyo-uno;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: white;
+
+}
+
+.input-container input,
+.input-container textarea,
+.input-container select {
+    width: 100%;
+    height: 100%;
+    border: 1px solid $mtp-apoyo-dos;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+
+::ng-deep mat-checkbox label {
+    margin-top: 6px;
+}
+
+.input-container input:focus-visible,
+.input-container textarea:focus-visible,
+.input-container select:focus-visible {
+    outline: unset;
+}
+.input-container textarea{
+    min-height: 300px;
+    padding-top: 20px;
+}
+
+.selected{
+    background: $mtp-primarios-dos !important;
+}

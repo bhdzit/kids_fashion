@@ -21,6 +21,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ClienteComponent } from './cliente/cliente.component';
 import { ClientesInfoComponent } from './cliente/clientes-info/clientes-info.component';
+import { FormErrorDirective } from './services/form-error.directive';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ClientesInfoComponent } from './cliente/clientes-info/clientes-info.com
     LoginComponent,
     HomeComponent,
     ClienteComponent,
-    ClientesInfoComponent
+    ClientesInfoComponent,
+    FormErrorDirective
   ],
   imports: [
     BrowserModule,

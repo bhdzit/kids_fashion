@@ -33,6 +33,7 @@
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css",
               "src/assets/css/adminlte.min.css",
+              "src/assets/css/kids_fashion.scss",
               "src/assets/plugins/fontawesome-free/css/all.min.css",
               "src/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css"
             ],
