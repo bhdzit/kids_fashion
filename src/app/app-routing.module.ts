@@ -7,6 +7,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { DeactivateGuard } from './deactivate-guard';
 import { AuthService } from './services/auth.services';
 import { ClienteComponent } from './cliente/cliente.component';
+import { ProductosComponent } from './productos/productos.component';
 
 const routes: Routes = [
 
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: 'clientes',
         component: ClienteComponent,
+      },
+      {
+        path: 'productos',
+        component: ProductosComponent,
       },
      
     ]

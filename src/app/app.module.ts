@@ -22,6 +22,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { ClienteComponent } from './cliente/cliente.component';
 import { ClientesInfoComponent } from './cliente/clientes-info/clientes-info.component';
 import { FormErrorDirective } from './services/form-error.directive';
+import { ProductosComponent } from './productos/productos.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { FormErrorDirective } from './services/form-error.directive';
     HomeComponent,
     ClienteComponent,
     ClientesInfoComponent,
-    FormErrorDirective
+    FormErrorDirective,
+    ProductosComponent
   ],
   imports: [
     BrowserModule,
