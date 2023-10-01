@@ -30,6 +30,7 @@ import { EstilistasComponent } from './estilistas/estilistas.component';
 import { EstilistasInfoComponent } from './estilistas/estilistas-info/estilistas-info.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { CitasComponent } from './citas/citas.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ServiciosComponent,
     ServiciosInfoComponent,
     EstilistasComponent,
-    EstilistasInfoComponent
+    EstilistasInfoComponent,
+    CitasComponent
   ],
   imports: [
     BrowserModule,
