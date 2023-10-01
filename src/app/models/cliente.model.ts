@@ -1,3 +1,7 @@
 export interface ClienteVo{
-    id?:number
+    id?:number;
+    cliente:string;
+    tel:string;
+    padre:string;
+    isPrimerCorte:boolean;
 }

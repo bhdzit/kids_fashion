@@ -11,10 +11,14 @@ export class ClientesInfoComponent implements OnInit, AfterViewInit {
 
   submitErrorMsg: any = {};
   clienteVO: ClienteVo = {
+    cliente: '',
+    tel: '',
+    padre: '',
+    isPrimerCorte: false
   };
 
-
   constructor(public dialog: MatDialogRef<ClientesInfoComponent>, @Inject(MAT_DIALOG_DATA) public data: ClienteVo, private _clientesService: ClientesService) { }
+  
   ngAfterViewInit(): void {
 
   }
@@ -24,12 +28,9 @@ export class ClientesInfoComponent implements OnInit, AfterViewInit {
 
   }
 
-  coordsChangeEvent(evt: any) {
-    console.log(evt);
-  }
 
   guardarCliente() {
-
+      console.log(this.clienteVO)
   }
 
   formatoTel(event: KeyboardEvent) {
@@ -47,6 +48,10 @@ export class ClientesInfoComponent implements OnInit, AfterViewInit {
 
     return !(Number.isNaN(Number(key)));
     //input.value += key;
+  }
+
+  cerrar(){
+    this.dialog.close();
   }
 
 }
