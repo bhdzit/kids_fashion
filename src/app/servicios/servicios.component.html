@@ -1,0 +1,131 @@
+<script src="https://kit.fontawesome.com/015cfc4544.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Servicios</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item">
+            <a href="#">Home</a>
+          </li>
+          <li class="breadcrumb-item active">Servicios</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <!-- Default box -->
+  <div class="card ml-3 mr-3">
+    <div class="card-header">
+      <h3 class="card-title">Lista de Servicios</h3>
+
+      <div class="card-tools">
+        <div class="search-input mr-3">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+              aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-success">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+      <table [dataSource]="dataSource" mat-table class="mat-elevation-z8" matSort>
+        <!-- Position Column -->
+        <ng-container matColumnDef="no">
+          <th *matHeaderCellDef mat-header-cell>
+            No.
+          </th>
+          <td *matCellDef="let element; let i = index" mat-cell>{{ paginator.pageIndex * paginator.pageSize + (i + 1) }}
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header mat-sort-header>Nombre de Servicio</th>
+          <td *matCellDef="let element" mat-cell> {{ element.nombre }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="producto">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header mat-sort-header>producto</th>
+          <td *matCellDef="let element" mat-cell>{{ element.producto }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tiempo">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header mat-sort-header>tiempo</th>
+          <td *matCellDef="let element" mat-cell>{{ element.producto }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="costo">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header mat-sort-header>Costo</th>
+          <td *matCellDef="let element" mat-cell>{{ element.producto }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="opciones">
+          <th *matHeaderCellDef mat-header-cell>
+            Opciones
+          </th>
+          <td *matCellDef="let element" mat-cell>
+            <div>
+              <button type="button" class="btn btn-info">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+
+              <button type="button" class="ml-1 btn btn-warning">
+                <i class="fas fa-user-slash"></i>
+              </button>
+
+              <button type="button" class="ml-1 btn btn-danger">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+
+            <div>
+              <button type="button" class="btn btn-info">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Disclaimer column -->
+        <ng-container matColumnDef="disclaimer">
+          <td *matFooterCellDef [colSpan]="displayedColumns.length" mat-footer-cell>
+            <h3>
+              No se encontraron datos.
+            </h3>
+          </td>
+        </ng-container>
+
+        <tbody>
+          <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+          <tr *matFooterRowDef="['disclaimer']" [ngClass]="{ 'd-none': dataSource.data.length }" mat-footer-row></tr>
+          <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
+        </tbody>
+      </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 100]" [showFirstLastButtons]="true"
+      class="demo-paginator" aria-label="Select page">
+    </mat-paginator>
+  </div>
+  <!-- /.card -->
+</section>
+<!-- /.content -->

@@ -24,6 +24,7 @@ import { ClientesInfoComponent } from './cliente/clientes-info/clientes-info.com
 import { FormErrorDirective } from './services/form-error.directive';
 import { ProductosComponent } from './productos/productos.component';
 import { ProductosInfoComponent } from './productos/productos-info/productos-info.component';
+import { ServiciosComponent } from './servicios/servicios.component';
 
 
 
@@ -36,7 +37,8 @@ import { ProductosInfoComponent } from './productos/productos-info/productos-inf
     ClientesInfoComponent,
     FormErrorDirective,
     ProductosComponent,
-    ProductosInfoComponent
+    ProductosInfoComponent,
+    ServiciosComponent
   ],
   imports: [
     BrowserModule,

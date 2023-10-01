@@ -8,6 +8,7 @@ import { DeactivateGuard } from './deactivate-guard';
 import { AuthService } from './services/auth.services';
 import { ClienteComponent } from './cliente/cliente.component';
 import { ProductosComponent } from './productos/productos.component';
+import { ServiciosComponent } from './servicios/servicios.component';
 
 const routes: Routes = [
 
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'productos',
         component: ProductosComponent,
+      },
+      {
+        path: 'servicios',
+        component: ServiciosComponent,
       },
      
     ]
