@@ -26,6 +26,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { ProductosInfoComponent } from './productos/productos-info/productos-info.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { ServiciosInfoComponent } from './servicios/servicios-info/servicios-info.component';
+import { EstilistasComponent } from './estilistas/estilistas.component';
 
 
 
@@ -40,7 +41,8 @@ import { ServiciosInfoComponent } from './servicios/servicios-info/servicios-inf
     ProductosComponent,
     ProductosInfoComponent,
     ServiciosComponent,
-    ServiciosInfoComponent
+    ServiciosInfoComponent,
+    EstilistasComponent
   ],
   imports: [
     BrowserModule,

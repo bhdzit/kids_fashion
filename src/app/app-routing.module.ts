@@ -10,6 +10,7 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { ServiciosInfoComponent } from './servicios/servicios-info/servicios-info.component';
+import { EstilistasComponent } from './estilistas/estilistas.component';
 
 const routes: Routes = [
 
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'servicios/agregar',
         component: ServiciosInfoComponent,
+      },
+      {
+        path: 'estilistas',
+        component: EstilistasComponent,
       },
      
     ]
