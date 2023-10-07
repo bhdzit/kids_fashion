@@ -34,15 +34,16 @@ export class AllHttpInterceptor implements HttpInterceptor {
   private handleAuthError(err: HttpErrorResponse): Observable<any> {
     let preloader = document.getElementById("preloader");
     preloader?.classList.add("d-none");
+    if (err.status == 400) {
+      return new Observable;
+    }
     Swal.fire({
       title: 'Error!',
       text: 'Parece que hubo un problema con la conexion, por favor intenta mas tarde!',
       icon: 'error',
       confirmButtonText: 'OK'
     })
-    if (err.status == 400) {
-      return new Observable;
-    }
+
     //handle your auth error or rethrow
     if (err.status === 401 || err.status === 403) {
 

@@ -1,8 +1,8 @@
 <div class="row ml-2 mr-2 mt-4 mb-4">
 
     <div class="col-sm-12">
-        <div class="input-group has-validation input-container" kidsFashionFormError [mtpFormError]="submitErrorMsg.cliente">
-            <input #cliente type="text" class="form-control"  [value]="cliente.value.toUpperCase()" [(ngModel)]="clienteVO.cliente" >
+        <div class="input-group has-validation input-container" kidsFashionFormError [mtpFormError]="submitErrorMsg.nombre">
+            <input #cliente type="text" class="form-control"  [value]="cliente.value.toUpperCase()" [(ngModel)]="clienteVO.nombre" >
             <label>Cliente</label>
         </div>
     </div>
@@ -11,6 +11,13 @@
         <div class="input-group has-validation input-container" kidsFashionFormError [mtpFormError]="submitErrorMsg.padre">
             <input #padre type="text" class="form-control"  [value]="padre.value.toUpperCase()" [(ngModel)]="clienteVO.padre">
             <label>Padre</label>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="input-group has-validation input-container" kidsFashionFormError [mtpFormError]="submitErrorMsg.correo">
+            <input #correo type="text" class="form-control"  [value]="correo.value.toUpperCase()" [(ngModel)]="clienteVO.correo">
+            <label>Correo</label>
         </div>
     </div>
 
