@@ -1,14 +1,14 @@
 <div class="row ml-2 mr-2 mt-4 mb-4">
 
     <div class="col-sm-9">
-        <div class="input-group has-validation input-container" kidsFashionFormError [mtpFormError]="submitErrorMsg.producto">
-            <input #producto type="text" class="form-control"  [value]="producto.value.toUpperCase()" [(ngModel)]="productoVO.producto" >
+        <div class="input-group has-validation input-container" kidsFashionFormError [mtpFormError]="submitErrorMsg.nombre">
+            <input #producto type="text" class="form-control"  [value]="producto.value.toUpperCase()" [(ngModel)]="productoVO.nombre" >
             <label>Producto</label>
         </div>
     </div>
 
     <div class="col-sm-3">
-        <div class="input-group has-validation input-container" kidsFashionFormError [mtpFormError]="submitErrorMsg.producto">
+        <div class="input-group has-validation input-container" kidsFashionFormError [mtpFormError]="submitErrorMsg.cantidad">
             <input #producto type="number" class="form-control"  [value]="producto.value.toUpperCase()" [(ngModel)]="productoVO.cantidad" >
             <label>Cantidad en ml</label>
         </div>

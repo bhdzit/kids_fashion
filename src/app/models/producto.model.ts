@@ -1,5 +1,5 @@
 export interface ProductoVO {
     id ?: number;
-    producto:string;
+    nombre:string;
     cantidad:number;
 }

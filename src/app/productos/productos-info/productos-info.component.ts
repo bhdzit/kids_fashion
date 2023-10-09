@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ProductoVO } from 'src/app/models/producto.model';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-productos-info',
@@ -10,17 +11,27 @@ import { ProductoVO } from 'src/app/models/producto.model';
 export class ProductosInfoComponent {
   submitErrorMsg:any={};
   productoVO:ProductoVO={
-    producto: '',
+    nombre: '',
     cantidad: 0
   }
 
-  constructor(public dialog: MatDialogRef<ProductosInfoComponent>){}
+  constructor(public dialog: MatDialogRef<ProductosInfoComponent>,
+              private _productoService:ProductoService){}
 
   cerrar(){
 
   }
 
-  guardarProducto(){
-
+  guardarProducto() {
+    console.log(this.productoVO);
+    this._productoService.saveProducto(this.productoVO).subscribe((then) => {
+      if ('errors' in then) {
+        this.submitErrorMsg = then.errors;
+      }
+      else{
+        this.dialog.close({data:then});
+      }
+    });
   }
+
 }

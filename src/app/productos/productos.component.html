@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-success">
+                <button (click)="agregarProducto()" type="button" class="btn btn-success">
                     <i class="fas fa-plus"></i>
                 </button>
             </div>
@@ -55,13 +55,13 @@
                 <!-- Name Column -->
                 <ng-container matColumnDef="producto">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Productos </th>
-                    <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
                 </ng-container>
 
                 <!-- Name Column -->
                 <ng-container matColumnDef="cantidad">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Cantidad</th>
-                        <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.cantidad}} ml </td>
                 </ng-container>
 
                 <!-- Symbol Column -->
@@ -69,25 +69,15 @@
                     <th mat-header-cell *matHeaderCellDef> Opciones </th>
                     <td mat-cell *matCellDef="let element">
                         <div >
-                            <button type="button" class="btn btn-info">
+                            <button (click)="editarProducto(element)" type="button" class="btn btn-info">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
 
-                            <button type="button" class="ml-1 btn btn-warning">
-                                <i class="fas fa-user-slash"></i>
-                            </button>
 
-                            <button type="button" class="ml-1 btn btn-danger">
+                            <button (click)="eliminarProducto(element)" type="button" class="ml-1 btn btn-danger">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
-
-                        <div >
-                            <button type="button" class="btn btn-info">
-                                <i class="fas fa-pencil-alt"></i>
-                            </button>
-                        </div>
-
                     </td>
                 </ng-container>
 
