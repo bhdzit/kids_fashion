@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <button type="button" class="btn btn-success">
+        <button [routerLink]="'agregar'" type="button" class="btn btn-success">
           <i class="fas fa-plus"></i>
         </button>
       </div>
@@ -64,18 +64,20 @@
 
         <!-- Name Column -->
         <ng-container matColumnDef="producto">
-          <th *matHeaderCellDef mat-header-cell mat-sort-header mat-sort-header>producto</th>
-          <td *matCellDef="let element" mat-cell>{{ element.producto }}</td>
+          <th *matHeaderCellDef mat-header-cell mat-sort-header mat-sort-header>Producto</th>
+          <td *matCellDef="let element" mat-cell>
+            <li *ngFor="let producto of element.productos">{{producto.producto.nombre}}</li>
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="tiempo">
-          <th *matHeaderCellDef mat-header-cell mat-sort-header mat-sort-header>tiempo</th>
-          <td *matCellDef="let element" mat-cell>{{ element.producto }}</td>
+          <th *matHeaderCellDef mat-header-cell mat-sort-header mat-sort-header>Tiempo</th>
+          <td *matCellDef="let element" mat-cell>{{ element.tiempo }}</td>
         </ng-container>
 
         <ng-container matColumnDef="costo">
           <th *matHeaderCellDef mat-header-cell mat-sort-header mat-sort-header>Costo</th>
-          <td *matCellDef="let element" mat-cell>{{ element.producto }}</td>
+          <td *matCellDef="let element" mat-cell>{{ element.costo }}</td>
         </ng-container>
 
         <!-- Symbol Column -->
@@ -85,22 +87,12 @@
           </th>
           <td *matCellDef="let element" mat-cell>
             <div>
-              <button type="button" class="btn btn-info">
+              <button [routerLink]="'editar/'+element.id" type="button" class="btn btn-info">
                 <i class="fas fa-pencil-alt"></i>
               </button>
 
-              <button type="button" class="ml-1 btn btn-warning">
-                <i class="fas fa-user-slash"></i>
-              </button>
-
-              <button type="button" class="ml-1 btn btn-danger">
+              <button (click)="eliminarServicio(element)" type="button" class="ml-1 btn btn-danger">
                 <i class="fas fa-trash"></i>
-              </button>
-            </div>
-
-            <div>
-              <button type="button" class="btn btn-info">
-                <i class="fas fa-pencil-alt"></i>
               </button>
             </div>
           </td>

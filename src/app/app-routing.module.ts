@@ -39,6 +39,10 @@ const routes: Routes = [
         component: ServiciosInfoComponent,
       },
       {
+        path: 'servicios/editar/:id',
+        component: ServiciosInfoComponent,
+      },
+      {
         path: 'estilistas',
         component: EstilistasComponent,
       },

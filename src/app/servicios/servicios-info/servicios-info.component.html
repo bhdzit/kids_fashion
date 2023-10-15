@@ -31,47 +31,54 @@
 
                 <div class="col-sm-12">
                     <div class="input-group has-validation input-container" kidsFashionFormError
-                        [mtpFormError]="submitErrorMsg.producto">
-                        <input #producto type="text" class="form-control" [value]="producto.value.toUpperCase()">
+                        [mtpFormError]="submitErrorMsg.nombre">
+                        <input #nombre type="text" class="form-control" [value]="nombre.value.toUpperCase()"
+                            [(ngModel)]="servicioVO.nombre">
                         <label>Nombre de servicio</label>
                     </div>
                 </div>
 
                 <div class="col-sm-6">
                     <div class="input-group has-validation input-container" kidsFashionFormError
-                        [mtpFormError]="submitErrorMsg.producto">
-                        <input #producto type="text" class="form-control" [value]="producto.value.toUpperCase()">
+                        [mtpFormError]="submitErrorMsg.tiempo">
+                        <input #tiempo type="number" class="form-control" [value]="tiempo.value.toUpperCase()"
+                            [(ngModel)]="servicioVO.tiempo">
                         <label>Tiempo</label>
                     </div>
                 </div>
 
                 <div class="col-sm-6">
                     <div class="input-group has-validation input-container" kidsFashionFormError
-                        [mtpFormError]="submitErrorMsg.producto">
-                        <input #producto type="text" class="form-control" [value]="producto.value.toUpperCase()">
+                        [mtpFormError]="submitErrorMsg.costo">
+                        <input #costo type="number" class="form-control" [value]="costo.value.toUpperCase()"
+                            [(ngModel)]="servicioVO.costo">
                         <label>Costo</label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary ml-1" >Guardar</button>
+                <button type="submit" [routerLink]="servicioVO.id? '../..':'..'"
+                    class="btn btn-danger ml-1">Cancelar</button>
+                <button (click)="guardarServicio()" type="submit" class="btn btn-primary ml-1">{{ servicioVO.id?
+                    'Actualizar':'Guardar'}} </button>
             </div>
         </div>
 
         <div class="card-header">
-            <h2 class="card-title">Lista de Productos <sub class="text-info">(La lista de productos se habilitara al guardar servicio)</sub> </h2>
+            <h2 class="card-title">Lista de Productos <sub class="text-info">(La lista de productos se habilitara al
+                    guardar servicio)</sub> </h2>
 
             <div class="card-tools">
 
                 <div class="search-input mr-3">
                     <div class="input-group ">
                         <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
-                            aria-describedby="basic-addon2" >
+                            aria-describedby="basic-addon2">
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-success">
+                <button (click)="agregarProductoUtilizado()" type="button" class="btn btn-success">
                     <i class="fas fa-plus"></i>
                 </button>
             </div>
@@ -85,18 +92,22 @@
                     <ng-container matColumnDef="no">
                         <th mat-header-cell *matHeaderCellDef> No. </th>
                         <td mat-cell *matCellDef="let element;let i=index">
-                            </td>
+                            {{(paginator.pageIndex*paginator.pageSize)+(i+1)}}</td>
                     </ng-container>
                     <!-- Name Column -->
                     <ng-container matColumnDef="producto">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Productos </th>
-                        <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.producto.nombre}}
+                        </td>
                     </ng-container>
 
                     <!-- Name Column -->
                     <ng-container matColumnDef="cantidad">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Cantidad</th>
-                        <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.cantidad}}
+                        </td>
                     </ng-container>
 
                     <!-- Symbol Column -->
@@ -104,22 +115,12 @@
                         <th mat-header-cell *matHeaderCellDef> Opciones </th>
                         <td mat-cell *matCellDef="let element">
                             <div>
-                                <button type="button" class="btn btn-info">
+                                <button (click)="editarProductoDeServicio(element)" type="button" class="btn btn-info">
                                     <i class="fas fa-pencil-alt"></i>
                                 </button>
 
-                                <button type="button" class="ml-1 btn btn-warning">
-                                    <i class="fas fa-user-slash"></i>
-                                </button>
-
-                                <button type="button" class="ml-1 btn btn-danger">
+                                <button (click)="eliminarProductoDeServicio(element)" type="button" class="ml-1 btn btn-danger">
                                     <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-
-                            <div>
-                                <button type="button" class="btn btn-info">
-                                    <i class="fas fa-pencil-alt"></i>
                                 </button>
                             </div>
 
@@ -139,7 +140,37 @@
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
             </div>
-        </div>
+            <mat-paginator #paginator class="demo-paginator" [pageSize]="5" [pageSizeOptions]="[5,10,100]"
+                [showFirstLastButtons]="true" aria-label="Select page">
+            </mat-paginator>
 
+        </div>
+        <div class="card-body" *ngIf="showProductoFrom">
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="input-group has-validation input-container" kidsFashionFormError
+                        [mtpFormError]="submitErrorMsg.nombre">
+                        <select class="form-control"  [(ngModel)]="producto.producto">
+                            <option *ngFor="let producto of productosList" [value]="producto.id" >{{producto.nombre}}</option>
+                        </select>
+                        <label>Producto</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="input-group has-validation input-container" kidsFashionFormError
+                        [mtpFormError]="submitErrorMsg.costo">
+                        <input #cantidad type="number" class="form-control" [value]="cantidad.value.toUpperCase()"
+                            [(ngModel)]="producto.cantidad">
+                        <label>Cantidad</label>
+                    </div>
+                </div>
+                <button type="submit" [routerLink]="servicioVO.id? '../..':'..'"
+                    class="btn btn-danger ml-1">Cancelar</button>
+                <button (click)="guardarProdcutoUtilizado()" type="submit" class="btn btn-primary ml-1">{{ producto.id?
+                    'Actualizar':'Guardar'}} </button>
+            </div>
+        </div>
     </div>
 </section>
