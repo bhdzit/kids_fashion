@@ -39,6 +39,7 @@ export class ProductosComponent{
         this.dataSource.data = result.data;
         setTimeout(() => {
           this.dataSource.paginator?.lastPage();
+          Swal.fire("El producto se agrego con exito","","success");          
         }, 500);
       }
     });
@@ -53,6 +54,7 @@ export class ProductosComponent{
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined && "data" in result) {
         this.dataSource.data = result.data;
+        Swal.fire("El producto se actualizo con exito","","success");
       }
     });
 
@@ -80,6 +82,7 @@ export class ProductosComponent{
       this._productoService.destroyProductos(producto).subscribe(
         then => {
           this.dataSource.data = then;
+          Swal.fire("El producto se elimino con exito","","success");
         }
       );
     }
