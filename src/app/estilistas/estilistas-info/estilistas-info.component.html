@@ -12,7 +12,7 @@
                         <a href="#">Home</a>
                     </li>
                     <li class="breadcrumb-item active">Estilistas</li>
-                    <li class="breadcrumb-item active">Agregar Estilista</li>
+                    <li class="breadcrumb-item active">{{usuarioVO.id ? "Editar":"Agregar"}} Estilista</li>
                 </ol>
             </div>
         </div>
@@ -25,56 +25,53 @@
     <!-- Default box -->
     <div class="card ml-3 mr-3">
         <mat-accordion>
-            <mat-expansion-panel hideToggle>
+            <mat-expansion-panel hideToggle [expanded]="expnade==1">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        Agregar Estilista
+                        {{usuarioVO.id ? "Editar":"Agregar"}} Estilista
                     </mat-panel-title>
-                    <mat-panel-description>
-                        This is a summary of the content
-                    </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="row">
 
                     <div class="col-sm-12">
                         <div class="input-group has-validation input-container" kidsFashionFormError
-                            [mtpFormError]="submitErrorMsg.producto">
-                            <input #producto type="text" class="form-control" [value]="producto.value.toUpperCase()">
+                            [mtpFormError]="submitErrorMsg.nombre">
+                            <input #nombre type="text" class="form-control" [value]="nombre.value.toUpperCase()" [(ngModel)]="usuarioVO.nombre">
                             <label>Nombre de Estilista</label>
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="input-group has-validation input-container" kidsFashionFormError
-                            [mtpFormError]="submitErrorMsg.producto">
-                            <input #producto type="text" class="form-control" [value]="producto.value.toUpperCase()">
+                            [mtpFormError]="submitErrorMsg.usuario">
+                            <input #usuario type="text" class="form-control" [value]="usuario.value.toUpperCase()" [(ngModel)]="usuarioVO.usuario">
                             <label>Usuario</label>
                         </div>
                     </div>
 
                     <div class="col-sm-6">
                         <div class="input-group has-validation input-container" kidsFashionFormError
-                            [mtpFormError]="submitErrorMsg.producto">
-                            <input #producto type="text" class="form-control" [value]="producto.value.toUpperCase()">
+                            [mtpFormError]="submitErrorMsg.password">
+                            <input #password type="text" class="form-control" [value]="password.value.toUpperCase()" [(ngModel)]="usuarioVO.password">
                             <label>Cambiar Contraseña</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary ml-1">Guardar</button>
+                    <button (click)="guardarEstilistas()" type="submit" class="btn btn-primary ml-1">Guardar</button>
                 </div>
             </mat-expansion-panel>
 
-            <mat-expansion-panel>
+            <mat-expansion-panel [disabled]="!usuarioVO.id" [expanded]="expnade==2" >
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         Lista de Servicios
                     </mat-panel-title>
                     <mat-panel-description>
-                        Currently I am
+                        <sub class="text-info">(La lista de Servicios se
+                            habilitara al guardar Estilista)</sub>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="card-header">
-                    <h2 class="card-title">Lista de Servicios <sub class="text-info">(La lista de Servicios se
-                            habilitara al guardar Estilista)</sub> </h2>
+                    <h2 class="card-title">Lista de Servicios  </h2>
 
                     <div class="card-tools">
 
@@ -88,7 +85,7 @@
                             </div>
                         </div>
 
-                        <button type="button" class="btn btn-success">
+                        <button (click)="showServiciosForm=true" type="button" class="btn btn-success">
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
@@ -101,13 +98,13 @@
                             <!-- Position Column -->
                             <ng-container matColumnDef="no">
                                 <th mat-header-cell *matHeaderCellDef> No. </th>
-                                <td mat-cell *matCellDef="let element;let i=index">
+                                <td *matCellDef="let element; let i = index" mat-cell>{{ paginator.pageIndex * paginator.pageSize + (i + 1) }}
                                 </td>
                             </ng-container>
                             <!-- Name Column -->
                             <ng-container matColumnDef="servicio">
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Servicio </th>
-                                <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+                                <td mat-cell *matCellDef="let element"> {{element.servicio.nombre}} </td>
                             </ng-container>
 
 
@@ -116,25 +113,14 @@
                                 <th mat-header-cell *matHeaderCellDef> Opciones </th>
                                 <td mat-cell *matCellDef="let element">
                                     <div>
-                                        <button type="button" class="btn btn-info">
+                                        <button (click)="editarServicio(element)" type="button" class="btn btn-info">
                                             <i class="fas fa-pencil-alt"></i>
                                         </button>
 
-                                        <button type="button" class="ml-1 btn btn-warning">
-                                            <i class="fas fa-user-slash"></i>
-                                        </button>
-
-                                        <button type="button" class="ml-1 btn btn-danger">
+                                        <button (click)="eliminarServicio(element)" type="button" class="ml-1 btn btn-danger">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
-
-                                    <div>
-                                        <button type="button" class="btn btn-info">
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </button>
-                                    </div>
-
                                 </td>
                             </ng-container>
 
@@ -152,20 +138,47 @@
                             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                         </table>
                     </div>
+                    <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 100]" [showFirstLastButtons]="true"
+                    class="demo-paginator" aria-label="Select page">
+                  </mat-paginator>
                 </div>
+
+                <div class="card-body" *ngIf="showServiciosForm">
+                    <div class="row">
+        
+                        <div class="col-sm-12">
+                            <div class="input-group has-validation input-container" kidsFashionFormError
+                                [mtpFormError]="submitErrorMsg.nombre">
+                                <select class="form-control"  [(ngModel)]="servicioVO.servicio">
+                                    <option *ngFor="let servicio of servicioList" [value]="servicio.id" >{{servicio.nombre}}</option>
+                                </select>
+                                <label>Servicio</label>
+                            </div>
+                        </div>
+    
+                        <button type="submit" (click)="showServiciosForm=false;"
+                            class="btn btn-danger ml-1">Cancelar</button>
+                        <button type="submit" class="btn btn-primary ml-1" (click)="guardarServicio()">Guardar</button>
+                    </div>
+                </div>
+
             </mat-expansion-panel>
 
-            <mat-expansion-panel hideToggle>
+            <mat-expansion-panel hideToggle [disabled]="!usuarioVO.id" [expanded]="expnade==3">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                        Hoario Laboral
                     </mat-panel-title>
+                    <mat-panel-description>
+                        <sub class="text-info">(La lista de Servicios se
+                            habilitara al guardar Estilista)</sub>
+                    </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div>
-                        <button type="button" class="btn btn-primary">
+                        <button (click)="guardarHorarioDeTrabajo()" type="button" class="btn btn-primary">
                             Guardar
                         </button>
-                    <full-calendar [options]="calendarOptions"></full-calendar>
+                    <full-calendar #calendar [options]="calendarOptions"></full-calendar>
                 </div>
             </mat-expansion-panel>
 

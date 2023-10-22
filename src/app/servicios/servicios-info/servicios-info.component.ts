@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductoVO } from 'src/app/models/producto.model';
 import { ServicioVO } from 'src/app/models/servicio.model';
 import { ProductoService } from 'src/app/services/producto.service';
-import { Servicioservice } from 'src/app/services/servicios.services';
+import { ServicioService } from 'src/app/services/servicios.services';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -37,7 +37,7 @@ export class ServiciosInfoComponent {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(
-    private _servicioservice: Servicioservice,
+    private _servicioservice: ServicioService,
     private _route: ActivatedRoute,
     private _productoService: ProductoService,
     private _router: Router

@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class Servicioservice {
+export class ServicioService {
 
   
   constructor(private http: HttpClient) {

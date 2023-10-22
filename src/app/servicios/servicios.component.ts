@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { Servicioservice } from '../services/servicios.services';
+import { ServicioService } from '../services/servicios.services';
 import { ServicioVO } from '../models/servicio.model';
 import { MatPaginator } from '@angular/material/paginator';
 import Swal from 'sweetalert2';
@@ -17,7 +17,7 @@ export class ServiciosComponent {
   displayedColumns = ["no","nombre","producto","tiempo","costo","opciones"];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private _dialog: MatDialog,private _servicioservice:Servicioservice){
+  constructor(private _dialog: MatDialog,private _servicioservice:ServicioService){
     this.getServicios();
   }
 

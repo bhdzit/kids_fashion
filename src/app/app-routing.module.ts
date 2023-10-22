@@ -51,6 +51,10 @@ const routes: Routes = [
         component: EstilistasInfoComponent,
       },
       {
+        path: 'estilistas/editar/:id',
+        component: EstilistasInfoComponent,
+      },
+      {
         path: 'citas',
         component: CitasComponent,
       },
