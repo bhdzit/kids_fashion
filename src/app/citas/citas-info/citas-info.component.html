@@ -1,0 +1,34 @@
+<div class="row ml-2 mr-2 mt-4 mb-4">
+
+    <div class="col-sm-12">
+        <div class="input-group has-validation input-container" kidsFashionFormError
+            [mtpFormError]="submitErrorMsg?.estilista">
+            <select #estilista type="text" class="form-control" (change)="cambioEstilista($event)" [(ngModel)]="citaVO.estilista">
+                <option *ngFor="let estilista of estilistasList" [value]="estilista.id" >{{estilista.nombre}}</option>
+            </select>
+            <label>Estilista</label>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="input-group has-validation input-container" kidsFashionFormError
+            [mtpFormError]="submitErrorMsg?.servicio">
+            <select #cliente type="text" class="form-control" [(ngModel)]="citaVO.servicio">
+                <option *ngFor="let servicio of serviciosEstilista" [value]="servicio.servicio.id">{{servicio.servicio.nombre}}</option>
+            </select>
+            <label>Servicio</label>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="input-group has-validation input-container" kidsFashionFormError
+            [mtpFormError]="submitErrorMsg?.servicio">
+            <input type="datetime-local" class="form-control" [(ngModel)]="citaVO.fecha">
+            <label>Día de servicio</label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-danger ml-1" (click)="cerrar()">Cancelar</button>
+    <button type="submit" class="btn btn-primary ml-1" (click)="guardarCita()">Guardar</button>
+
+</div>

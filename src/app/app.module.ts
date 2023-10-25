@@ -31,7 +31,7 @@ import { EstilistasInfoComponent } from './estilistas/estilistas-info/estilistas
 import { FullCalendarModule } from '@fullcalendar/angular';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { CitasComponent } from './citas/citas.component';
-import { CitasInfoComponent } from './citas-info/citas-info.component';
+import { CitasInfoComponent } from './citas/citas-info/citas-info.component';
 
 @NgModule({
   declarations: [
