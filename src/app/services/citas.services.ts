@@ -15,8 +15,8 @@ export class CitasService {
   constructor(private http: HttpClient) {
   }
 
-  getCitas(): Observable<ProductoVO[]> {
-    return this.http.get<ProductoVO[]>("api/v1/citas/getCitas?rs=estilista,servicio,estatus", {});
+  getCitas(): Observable<CitaVO[]> {
+    return this.http.get<CitaVO[]>("api/v1/citas/getCitas?rs=estilista,servicio,estatus", {});
   }
 
   saveCita(cita:CitaVO):Observable<ProductoVO[]>{

@@ -85,9 +85,6 @@ export class ClienteComponent {
       confirmButtonText: 'Si, Eliminar!'
     });
 
-    console.log(res);
-
-
     // you logic goes here, whatever that may be 
     // and it must return either True or False
 

@@ -13,6 +13,7 @@ import { ServiciosInfoComponent } from './servicios/servicios-info/servicios-inf
 import { EstilistasComponent } from './estilistas/estilistas.component';
 import { EstilistasInfoComponent } from './estilistas/estilistas-info/estilistas-info.component';
 import { CitasComponent } from './citas/citas.component';
+import { CalendarioCitasComponent } from './calendario-citas/calendario-citas.component';
 
 const routes: Routes = [
 
@@ -57,6 +58,10 @@ const routes: Routes = [
       {
         path: 'citas',
         component: CitasComponent,
+      },
+      {
+        path: 'citas/calendario-citas',
+        component: CalendarioCitasComponent,
       },
      
     ]
