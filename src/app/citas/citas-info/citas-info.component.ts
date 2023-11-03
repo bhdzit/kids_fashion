@@ -31,7 +31,11 @@ export class CitasInfoComponent {
       this.citaVO = {...data};
       this.citaVO.estilista = (this.citaVO.estilista as any).id;
       this.citaVO.servicio = (this.citaVO.servicio as any).id;
-      this.citaVO.fecha = (this.citaVO.fecha as any).replace(".000Z","");      
+//      this.citaVO.fecha = (this.citaVO.fecha as any).replace(".000Z","");
+      let fecha:string = this.citaVO.fecha+"";
+      fecha=fecha.replace(/:\d\d\..*$/, '');
+      (this.citaVO as any).fecha =fecha;
+            
     }
 
     this.getEstilistas();
