@@ -51,11 +51,21 @@
 
                     <div class="col-sm-6">
                         <div class="input-group has-validation input-container" kidsFashionFormError
+                            [mtpFormError]="submitErrorMsg.color">
+                            <input type="color" class="form-control" [(ngModel)]="usuarioVO.color">
+                            <label>Color en Calendario</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="input-group has-validation input-container" kidsFashionFormError
                             [mtpFormError]="submitErrorMsg.password">
                             <input #password type="text" class="form-control" [value]="password.value.toUpperCase()" [(ngModel)]="usuarioVO.password">
                             <label>Cambiar Contraseña</label>
                         </div>
                     </div>
+
+
                     <button (click)="guardarEstilistas()" type="submit" class="btn btn-primary ml-1">Guardar</button>
                 </div>
             </mat-expansion-panel>

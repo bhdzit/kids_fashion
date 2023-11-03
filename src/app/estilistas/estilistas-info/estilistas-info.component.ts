@@ -24,7 +24,7 @@ export class EstilistasInfoComponent implements OnInit {
   displayedColumns = ['no', 'servicio', 'opciones'];
   submitErrorMsg: any = {};
   i: number = 0;
-  expnade = 3;
+  expnade = 1;
   calendarVisible = true;
   calendarOptions: CalendarOptions = {
     plugins: [interactionPlugin, timeGridPlugin],
@@ -200,8 +200,6 @@ export class EstilistasInfoComponent implements OnInit {
       then.map(item=>{
         const start:Date=this.matchDayOfWeek(item.start);
         const end = this.matchDayOfWeek(item.end);
-        console.log(start);
-        
         const horario={
           id: item.id,
           title: '',

@@ -45,7 +45,6 @@ export class CalendarioCitasComponent {
     this._citasService.getCitas().subscribe((then) => {
       then.map((item:any) => {
         let fechaFin = new Date();
-        
         if (item.fecha != undefined)
           fechaFin = this.addMinutes(new Date(item.fecha), (item.servicio as any).tiempo);
         const cita = {
@@ -53,7 +52,7 @@ export class CalendarioCitasComponent {
           title: (item.servicio as any).nombre+" - "+item.estilista.nombre,
           start: item.fecha?.toString().replace('.000Z', ''),
           end:fechaFin.toISOString().replace('.000Z', ''),
-          color:"#0f0"
+          color:item.estilista.color
         };        
         INITIAL_EVENTS.push(cita);
         this.calendarOptions.events = INITIAL_EVENTS;
