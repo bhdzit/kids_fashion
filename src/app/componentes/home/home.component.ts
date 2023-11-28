@@ -13,6 +13,7 @@ export class HomeComponent {
 
   links=[
    {ruta:"dashboard", icono:"fas fa-broadcast-tower", name:"Dashboard"},
+   {ruta:"pagos-servicio", icono:"fas fa-shopping-cart", name:"Pagos Servicio"},
    {ruta:"clientes", icono:"fas fa-users", name:"Clientes"},
    {ruta:"estilistas", icono:"fas fa-user-tie", name:"Estilistas"},   
    {ruta:"citas", icono:"fas fa-calendar-check", name:"Citas"},

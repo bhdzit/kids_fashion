@@ -33,6 +33,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { CitasComponent } from './citas/citas.component';
 import { CitasInfoComponent } from './citas/citas-info/citas-info.component';
 import { CalendarioCitasComponent } from './calendario-citas/calendario-citas.component';
+import { PagoServicioComponent } from './pago-servicio/pago-servicio.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CalendarioCitasComponent } from './calendario-citas/calendario-citas.co
     EstilistasInfoComponent,
     CitasComponent,
     CitasInfoComponent,
-    CalendarioCitasComponent
+    CalendarioCitasComponent,
+    PagoServicioComponent
   ],
   imports: [
     BrowserModule,
