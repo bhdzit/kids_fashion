@@ -1,0 +1,19 @@
+<div class="row ml-2 mr-2 mt-4 mb-4">
+
+    <div class="col-sm-8">
+        <div class="input-group has-validation input-container" kidsFashionFormError [mtpFormError]="submitErrorMsg.nombre">
+            <input #producto type="text" class="form-control"  [value]="producto.value.toUpperCase()" [(ngModel)]="promocionVO.nombre" >
+            <label>Nombre</label>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="input-group has-validation input-container" kidsFashionFormError [mtpFormError]="submitErrorMsg.descuento">
+            <input #cantidad type="number" class="form-control"  [value]="cantidad.value.toUpperCase()" [(ngModel)]="promocionVO.descuento" >
+            <label>Descuento</label>
+        </div>
+    </div>
+
+      <button type="submit" class="btn btn-danger ml-1" (click)="cerrar()" >Cancelar</button>
+    <button type="submit" class="btn btn-primary ml-1" (click)="guardarPromoicion()" >Guardar</button>
+</div>

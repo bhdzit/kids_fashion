@@ -37,6 +37,7 @@ import { PagoServicioComponent } from './pago-servicio/pago-servicio.component';
 import { PagoServicioInfoComponent } from './pago-servicio/pago-servicio-info/pago-servicio-info.component';
 import {MatListModule} from '@angular/material/list';
 import { PromocionesComponent } from './promociones/promociones.component';
+import { PromocionesInfoComponent } from './promociones/promociones-info/promociones-info.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { PromocionesComponent } from './promociones/promociones.component';
     CalendarioCitasComponent,
     PagoServicioComponent,
     PagoServicioInfoComponent,
-    PromocionesComponent
+    PromocionesComponent,
+    PromocionesInfoComponent
   ],
   imports: [
     BrowserModule,

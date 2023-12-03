@@ -18,11 +18,11 @@ export class PromocionesService {
   }
 
   saveProducto(cliente:PromocionVO):Observable<PromocionVO[]>{
-    return this.http.post<PromocionVO[]>("api/v1/productos/store",cliente);
+    return this.http.post<PromocionVO[]>("api/v1/promociones/store",cliente);
   }
 
   destroyProductos(producto:PromocionVO):Observable<PromocionVO[]>{
-    return this.http.delete<PromocionVO[]>("api/v1/productos/delete/"+producto.id);
+    return this.http.delete<PromocionVO[]>("api/v1/promociones/delete/"+producto.id);
   }
 
 }
