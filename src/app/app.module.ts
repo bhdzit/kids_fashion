@@ -34,6 +34,8 @@ import { CitasComponent } from './citas/citas.component';
 import { CitasInfoComponent } from './citas/citas-info/citas-info.component';
 import { CalendarioCitasComponent } from './calendario-citas/calendario-citas.component';
 import { PagoServicioComponent } from './pago-servicio/pago-servicio.component';
+import { PagoServicioInfoComponent } from './pago-servicio/pago-servicio-info/pago-servicio-info.component';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { PagoServicioComponent } from './pago-servicio/pago-servicio.component';
     CitasComponent,
     CitasInfoComponent,
     CalendarioCitasComponent,
-    PagoServicioComponent
+    PagoServicioComponent,
+    PagoServicioInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ import { PagoServicioComponent } from './pago-servicio/pago-servicio.component';
     MatRadioModule,
     GoogleMapsModule,
     FullCalendarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatListModule
   ],
   providers: [AllHttpInterceptor,DeactivateGuard, {
     provide: MatDialogRef,

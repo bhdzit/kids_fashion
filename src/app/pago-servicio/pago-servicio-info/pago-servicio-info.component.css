@@ -1,0 +1,40 @@
+
+
+.input-container-area{
+    height: unset !important;
+    height: 100px !important;
+    position: relative;
+    margin-bottom: 20px;
+}
+textarea{
+    width: 100vw;
+    border: 1px solid #d7d7d7;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+    text-transform: uppercase;
+}
+
+.input-container-area label {
+    z-index: 5;
+    display: block;
+    position: absolute;
+    top: 15%;
+    transform: translateY(-120%) scale(0.8);
+    left: 10px;
+    color: #878787;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: white;
+}
+
+
+textarea:focus-visible
+{
+    outline: unset;
+}
+
+.card-header{
+    border-bottom: unset !important;
+} 

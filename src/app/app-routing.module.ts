@@ -15,6 +15,7 @@ import { EstilistasInfoComponent } from './estilistas/estilistas-info/estilistas
 import { CitasComponent } from './citas/citas.component';
 import { CalendarioCitasComponent } from './calendario-citas/calendario-citas.component';
 import { PagoServicioComponent } from './pago-servicio/pago-servicio.component';
+import { PagoServicioInfoComponent } from './pago-servicio/pago-servicio-info/pago-servicio-info.component';
 
 const routes: Routes = [
 
@@ -67,6 +68,10 @@ const routes: Routes = [
       {
         path: 'pagos-servicio',
         component: PagoServicioComponent,
+      },
+      {
+        path: 'pagos-servicio/agregar',
+        component: PagoServicioInfoComponent,
       },
      
     ]

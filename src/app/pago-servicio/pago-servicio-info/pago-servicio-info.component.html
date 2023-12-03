@@ -1,0 +1,96 @@
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card ml-3 mr-3">
+        <div class="card-header">
+            <h3 class="card-title">Pagar Citas</h3>
+        </div>
+        <div class="card-body">
+            <div class="row ml-2 mr-2 mt-4 mb-4">
+
+                <div class="col-sm-12">
+                    <div class="input-group has-validation input-container" kidsFashionFormError
+                        [mtpFormError]="submitErrorMsg?.estilista">
+                        <select #estilista type="text" class="form-control" (change)="cambioEstilista($event)"
+                            [(ngModel)]="citaVO.estilista">
+                            <option *ngFor="let estilista of estilistasList" [value]="estilista.id">{{estilista.nombre}}
+                            </option>
+                        </select>
+                        <label>Estilista</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="input-group has-validation input-container" kidsFashionFormError
+                        [mtpFormError]="submitErrorMsg?.servicio">
+                        <select #cliente type="text" class="form-control" [(ngModel)]="citaVO.servicio" (change)="calcularTotal()" >
+                            <option *ngFor="let servicio of serviciosEstilista" [value]="servicio.servicio.id">
+                                {{servicio.servicio.nombre}}</option>
+                        </select>
+                        <label>Servicio</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="input-group has-validation input-container" kidsFashionFormError
+                        [mtpFormError]="submitErrorMsg?.cliente">
+                        <select #cliente type="text" class="form-control" [(ngModel)]="citaVO.cliente">
+                            <option *ngFor="let cliente of clientesArray" [value]="cliente.id">{{cliente.nombre}}
+                            </option>
+                        </select>
+                        <label>Cliente</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="input-group has-validation input-container" kidsFashionFormError
+                        [mtpFormError]="submitErrorMsg?.servicio">
+                        <input type="datetime-local" class="form-control" [(ngModel)]="citaVO.fecha">
+                        <label>Día de servicio</label>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="input-group has-validation input-container" kidsFashionFormError
+                        [mtpFormError]="submitErrorMsg?.servicio">
+                        <select #cliente type="text" class="form-control" [(ngModel)]="promocionSelecionada">
+                            <option *ngIf="promocionSelecionada==null" [value]="null" [disabled]="true">--Seleccione promocion</option>
+                            <option *ngFor="let promocion of promocionesList " [value]="promocion.id">{{promocion.nombre}} - $ {{promocion.descuento}}
+                            </option>
+                        </select>
+                        <label>Promociones</label>
+                    </div>
+                    <mat-list>
+                        <mat-list-item *ngFor="let promocion of listaDePromocionesSelecionadas " (click)="eliminarPromocion(promocion)" >
+                            <i class="fas fa-times"></i> {{promocion.nombre}} - ${{promocion.descuento}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+                
+                <div class="col-sm-4">
+                    <button [disabled]="promocionSelecionada==null" (click)="agregarPromocion()" class="btn btn-primary">Agregar promocion</button>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="input-group has-validation input-container-area" kidsFashionFormError
+                        [mtpFormError]="submitErrorMsg?.estilista">
+                        <textarea></textarea>
+                        <label>Observaciones</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="input-group has-validation input-container" kidsFashionFormError
+                        [mtpFormError]="submitErrorMsg?.estilista">
+                        <input type="text" disabled [value]="'$ '+total">
+                        <label>Total</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-danger ml-1" (click)="cerrar()">Cancelar</button>
+                <button type="submit" class="btn btn-primary ml-1" (click)="guardarCita()">Guardar</button>
+
+            </div>
+        </div>
+    </div>
+</section>
