@@ -73,6 +73,10 @@ const routes: Routes = [
         path: 'pagos-servicio/agregar',
         component: PagoServicioInfoComponent,
       },
+      {
+        path: 'pagos-servicio/editar/:id',
+        component: PagoServicioInfoComponent,
+      },
      
     ]
   },

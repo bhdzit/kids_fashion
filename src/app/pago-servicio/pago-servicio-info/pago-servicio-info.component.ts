@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CitaVO } from 'src/app/models/cita.model';
 import { UsuarioVO } from 'src/app/models/usuario.model';
+import { CitasService } from 'src/app/services/citas.services';
 import { ClientesService } from 'src/app/services/clientes.service';
+import { PagoServicioService } from 'src/app/services/tickets.services';
 import { UsuarioService } from 'src/app/services/usuario.services';
 
 @Component({
@@ -24,10 +27,37 @@ export class PagoServicioInfoComponent {
     cliente:0,
   };
   total=0;
+  observaciones:string="";
 
-  constructor(private _estilistaService: UsuarioService, private _clientesService:ClientesService){
+  constructor(private _estilistaService: UsuarioService, private _clientesService:ClientesService,private _pagoServicioService:PagoServicioService,private _route: ActivatedRoute,private _citasService:CitasService){
+   
     this.getEstilistas();
     this.getCliente();
+
+    this._route.params.subscribe((params) => {
+      if (params['id']) {
+        this.getById(params['id']);
+      }
+    });
+  
+  }
+
+  getById(id:number){
+    this._citasService.getCitaById(id).subscribe(then=>{
+      const cita:any = then[0];      
+      this.citaVO["id"] = cita.id
+      this.citaVO.estilista= cita.estilista.id;
+      this.cambioEstilista(null);
+      this.citaVO.servicio= cita.servicio.id;
+      this.citaVO.cliente= cita.cliente.id;
+      let fecha:string = cita.fecha+"";
+      fecha=fecha.replace(/:\d\d\..*$/, '');
+      
+      (this.citaVO as any).fecha = fecha;
+      this.calcularTotal();
+      
+    })
+    
   }
 
   getEstilistas() {
@@ -59,7 +89,17 @@ export class PagoServicioInfoComponent {
 
   }
   guardarCita(){
-
+    const request = {
+      cita:this.citaVO,
+      total:this.total,
+      observaciones:this.observaciones
+    }
+    this._pagoServicioService.savePagoServicio(request).subscribe(then=>{
+      if ('errors' in then) {
+        this.submitErrorMsg = then.errors;
+      }
+      
+    })
   }
 
   agregarPromocion(){

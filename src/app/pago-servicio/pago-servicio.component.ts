@@ -13,7 +13,7 @@ import { PagoServicioInfoComponent } from './pago-servicio-info/pago-servicio-in
 export class PagoServicioComponent {
   
   dataSource: MatTableDataSource<any> = new MatTableDataSource();
-  displayedColumns: string[] = ["no","servicios","estilista","promocion","costo","opciones"];
+  displayedColumns: string[] = ["no","servicios","estilista","estatus", "promocion","costo","opciones"];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private _dialog: MatDialog,
@@ -22,9 +22,7 @@ export class PagoServicioComponent {
     }
 
   getData(){
-    this._citasServices.getCitas().subscribe(then=>{
-      console.log(then);
-      
+    this._citasServices.getCitas().subscribe(then=>{      
       this.dataSource = new MatTableDataSource(then);
       this.dataSource.paginator = this.paginator;      
     });

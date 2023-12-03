@@ -73,7 +73,7 @@
 
                 <div class="col-sm-12">
                     <div class="input-group has-validation input-container-area" kidsFashionFormError
-                        [mtpFormError]="submitErrorMsg?.estilista">
+                        [mtpFormError]="submitErrorMsg?.observaciones" [(ngModel)]="observaciones">
                         <textarea></textarea>
                         <label>Observaciones</label>
                     </div>
@@ -81,7 +81,7 @@
 
                 <div class="col-sm-12">
                     <div class="input-group has-validation input-container" kidsFashionFormError
-                        [mtpFormError]="submitErrorMsg?.estilista">
+                        [mtpFormError]="submitErrorMsg?.total">
                         <input type="text" disabled [value]="'$ '+total">
                         <label>Total</label>
                     </div>
