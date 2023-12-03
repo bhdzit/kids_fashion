@@ -36,6 +36,7 @@ import { CalendarioCitasComponent } from './calendario-citas/calendario-citas.co
 import { PagoServicioComponent } from './pago-servicio/pago-servicio.component';
 import { PagoServicioInfoComponent } from './pago-servicio/pago-servicio-info/pago-servicio-info.component';
 import {MatListModule} from '@angular/material/list';
+import { PromocionesComponent } from './promociones/promociones.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {MatListModule} from '@angular/material/list';
     CitasInfoComponent,
     CalendarioCitasComponent,
     PagoServicioComponent,
-    PagoServicioInfoComponent
+    PagoServicioInfoComponent,
+    PromocionesComponent
   ],
   imports: [
     BrowserModule,

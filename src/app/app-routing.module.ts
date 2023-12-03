@@ -16,6 +16,7 @@ import { CitasComponent } from './citas/citas.component';
 import { CalendarioCitasComponent } from './calendario-citas/calendario-citas.component';
 import { PagoServicioComponent } from './pago-servicio/pago-servicio.component';
 import { PagoServicioInfoComponent } from './pago-servicio/pago-servicio-info/pago-servicio-info.component';
+import { PromocionesComponent } from './promociones/promociones.component';
 
 const routes: Routes = [
 
@@ -76,6 +77,10 @@ const routes: Routes = [
       {
         path: 'pagos-servicio/editar/:id',
         component: PagoServicioInfoComponent,
+      },
+      {
+        path: 'promociones',
+        component: PromocionesComponent,
       },
      
     ]

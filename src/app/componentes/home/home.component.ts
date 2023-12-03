@@ -19,6 +19,7 @@ export class HomeComponent {
    {ruta:"citas", icono:"fas fa-calendar-check", name:"Citas"},
    {ruta:"productos", icono:"fas fa-wine-bottle", name:"Productos"},
    {ruta:"servicios", icono:"fas fa-cut", name:"Servicios"},   
+   {ruta:"promociones", icono:"fas fa-cut", name:"Promociones"},
   ]
 
   logOut(){
