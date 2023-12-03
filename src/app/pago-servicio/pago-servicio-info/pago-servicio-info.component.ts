@@ -4,6 +4,7 @@ import { CitaVO } from 'src/app/models/cita.model';
 import { UsuarioVO } from 'src/app/models/usuario.model';
 import { CitasService } from 'src/app/services/citas.services';
 import { ClientesService } from 'src/app/services/clientes.service';
+import { PromocionesService } from 'src/app/services/promociones.services';
 import { PagoServicioService } from 'src/app/services/tickets.services';
 import { UsuarioService } from 'src/app/services/usuario.services';
 
@@ -17,7 +18,7 @@ export class PagoServicioInfoComponent {
   estilistasList: UsuarioVO[] = [];
   serviciosEstilista: any[] = [];
   clientesArray:any[]=[];
-  promocionesList:any[] =[{id:1,nombre:"Promocion 1", descuento:10},{id:2,nombre:"Promocion 2", descuento:10},{id:3,nombre:"Promocion 3", descuento:10}];
+  promocionesList:any[] =[];
   promocionSelecionada=null;
   listaDePromocionesSelecionadas:any = [];
   citaVO: CitaVO = {
@@ -29,10 +30,13 @@ export class PagoServicioInfoComponent {
   total=0;
   observaciones:string="";
 
-  constructor(private _estilistaService: UsuarioService, private _clientesService:ClientesService,private _pagoServicioService:PagoServicioService,private _route: ActivatedRoute,private _citasService:CitasService){
+  constructor(private _estilistaService: UsuarioService, private _clientesService:ClientesService,
+    private _pagoServicioService:PagoServicioService,private _route: ActivatedRoute,
+    private _citasService:CitasService, private _promocionServices:PromocionesService){
    
     this.getEstilistas();
     this.getCliente();
+    this.getPromociones();
 
     this._route.params.subscribe((params) => {
       if (params['id']) {
@@ -40,6 +44,12 @@ export class PagoServicioInfoComponent {
       }
     });
   
+  }
+
+  getPromociones(){
+    this._promocionServices.getPromociones().subscribe(then=>{
+      this.promocionesList = then;
+    })
   }
 
   getById(id:number){
