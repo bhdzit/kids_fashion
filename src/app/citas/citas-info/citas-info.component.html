@@ -12,6 +12,16 @@
 
     <div class="col-sm-12">
         <div class="input-group has-validation input-container" kidsFashionFormError
+            [mtpFormError]="submitErrorMsg?.cliente">
+            <select #estilista type="text" class="form-control"  [(ngModel)]="citaVO.cliente">
+                <option *ngFor="let cliente of clientesList" [value]="estilista.id" >{{cliente.nombre}}</option>
+            </select>
+            <label>Cliente</label>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="input-group has-validation input-container" kidsFashionFormError
             [mtpFormError]="submitErrorMsg?.servicio">
             <select #cliente type="text" class="form-control" [(ngModel)]="citaVO.servicio">
                 <option *ngFor="let servicio of serviciosEstilista" [value]="servicio.servicio.id">{{servicio.servicio.nombre}}</option>

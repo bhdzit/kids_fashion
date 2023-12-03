@@ -4,6 +4,7 @@ import { CitaVO } from 'src/app/models/cita.model';
 import { ServicioVO } from 'src/app/models/servicio.model';
 import { UsuarioVO } from 'src/app/models/usuario.model';
 import { CitasService } from 'src/app/services/citas.services';
+import { ClientesService } from 'src/app/services/clientes.service';
 import { UsuarioService } from 'src/app/services/usuario.services';
 
 @Component({
@@ -21,9 +22,12 @@ export class CitasInfoComponent {
   estilistasList: UsuarioVO[] = [];
   serviciosEstilista: any[] = [];
 
+  clientesList:any[]=[]
+
   constructor(
     private _estilistaService: UsuarioService,
     private _citasService: CitasService,
+    private _clienteServices:ClientesService,
     @Inject(MAT_DIALOG_DATA) public data: CitaVO,
     public dialog: MatDialogRef<CitasInfoComponent>
   ) {
@@ -39,6 +43,13 @@ export class CitasInfoComponent {
     }
 
     this.getEstilistas();
+    this.getClientes();
+  }
+
+  getClientes(){
+    this._clienteServices.getClientes().subscribe(then=>{
+      this.clientesList=then;
+    })
   }
 
   getEstilistas() {
